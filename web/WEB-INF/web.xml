@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+    <display-name>scs</display-name>
+
+    <servlet>
+        <servlet-name>MyAdminServlet</servlet-name>
+        <servlet-class>com.mtl.controller.MyAdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>com.mtl.controller.UserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RandomServlet</servlet-name>
+        <servlet-class>com.mtl.controller.RandomServlet</servlet-class>
+    </servlet>
+    
+
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/servlet/userServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyAdminServlet</servlet-name>
+        <url-pattern>/servlet/myAdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RandomServlet</servlet-name>
+        <url-pattern>/yanzhengma.jpg</url-pattern>
+    </servlet-mapping>
+
+    <!-- Web项目中配置proxool，并自动加载 -->
+    <servlet>
+        <servlet-name>ServletConfigurator</servlet-name>
+        <servlet-class>
+            org.logicalcobwebs.proxool.configuration.ServletConfigurator
+        </servlet-class>
+        <init-param>
+            <param-name>propertyFile</param-name>
+            <param-value>WEB-INF/classes/proxool.properties</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <!--  监控 proxool 连接池 -->
+
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>org.logicalcobwebs.proxool.admin.servlet.AdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudentServlet</servlet-name>
+        <servlet-class>com.mtl.controller.StudentServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/admincontrol</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentServlet</servlet-name>
+        <url-pattern>/servlet/studentServlet</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
